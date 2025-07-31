@@ -5,6 +5,7 @@ public class Finishline : MonoBehaviour
 {
     [SerializeField] float timetorestart = 1f;
     [SerializeField] ParticleSystem finisheffect;
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,6 +25,7 @@ public class Finishline : MonoBehaviour
         {
             finisheffect.Play();
             Invoke("reloadscene", timetorestart);
+            GetComponent<AudioSource>().Play();
             
         }
 

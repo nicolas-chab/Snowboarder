@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float boostspeed = 30f;
     [SerializeField] float basespeed = 20f;
     Rigidbody2D rb2d;
-
+    bool canmove = true;
     SurfaceEffector2D surfaceEffector2D;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,10 +19,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotate();
-        respondtoboost();
+        if (canmove)
+        {
+            rotate();
+            respondtoboost();
+        }
+        
     }
-
+    public void disablecontrols()
+    {
+        canmove = false;
+    }
     void respondtoboost()
     {
         if (Input.GetKey(KeyCode.UpArrow))
